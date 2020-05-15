@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.datebindingdemo.User" />
+    </data>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:imageUrl="@{user.icon}"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{user.clickName}"
+            android:text="@{user.nike_name + `(`+user.name+`)`}"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onLongClick="@{user.longClickNickName}"
+            android:text="@{user.nike_name==null?user.name:user.nike_name}"
+            android:textColor="@{user.vip ? 0xffff0000 : 0xff000000}"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.email??user.nike_name}"
+            android:textSize="30sp" />
+        <!--小于号必须用htmlyu字符替代-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.email}"
+            android:textColor="@{user.level &lt; 3 ? 0xffff0000 : 0xff000000}"
+            android:textSize="30sp" />
+    </LinearLayout>
+</layout>
