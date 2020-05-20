@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
     //Square().draw()
 
     //抽象类
-    Demo().draw()
+    //Demo().draw()
 
 
 }

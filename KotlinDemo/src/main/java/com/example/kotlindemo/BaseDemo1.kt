@@ -1,12 +1,17 @@
 package com.example.kotlindemo
 
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
 基本类型的运算比较
+"""原始字符串
+返回函数（Unit）相当于java 中的 Void
+vararg参数：使函数可以接受任意数量的参数
 ${}替换
 字符串比较
-when操作符
+流程控制语句
+@标签的使用
 loop和range(循环和区间)
 map入门
 函数表达式
@@ -14,35 +19,138 @@ map入门
 枚举
 印章类
  */
+
 fun main() {
     //基本类型的运算比较
-    function1()
+    //function1()
 
-    //${}替换
-    function2()
+//    //${}替换
+//    function2()
+//
+//    //字符串比较
+//    function3()
+//
+    //流程控制语句
+    //when_code(10)
+    //if_code()
+    //for_code()
+    //while_code()
+    //break_continue_code()
 
-    //字符串比较
-    function3()
+    //@标签的使用
+    //biaoqian()
 
-    //when操作符
-    function4(10)
-    diaryGenarator("中山公园")
+    //返回函数（Unit）相当于java 中的 Void
+    //back_method()
 
-    //loop和range(循环和区间)
-    function5()
+    //vararg参数：使函数可以接受任意数量的参数
+    vararg_method()
+//
+//    //loop和range(循环和区间)
+//    function5()
+//
+//    //map入门
+//    function6()
+//
+//    //函数表达式
+//    function7()
+//
+//    //枚举
+//    function8()
+//
+//    //印章类,子类类型是有限的，更在意类型，枚举类更在意数据
+//    function9()
 
-    //map入门
-    function6()
+    //"""原始字符串
+    //function10()
 
-    //函数表达式
-    function7()
+}
 
-    //枚举
-    function8()
+fun vararg_method() {
+    printsum(1, 2)
+    printsum(1, 2, 3)
+    printAll("AA", "B", "C")
+    printAll2(1, 2, "哈哈1", "哈哈2", "哈哈3")
+    printAll3(1, 2, "哈哈1", "哈哈2", "哈哈3")
 
-    //印章类,子类类型是有限的，更在意类型，枚举类更在意数据
-    function9()
+    val texts = arrayOf(1, 2, "哈哈1", "哈哈2", "哈哈3")
+    printAll3(*texts)//效果和printAll3是等价的
+    printAll3("A", "B", *texts)
+}
 
+fun printAll3(vararg c: Any) {
+    val allTexts = c.joinToString(",", "[", "]")
+    println(allTexts)
+
+}
+
+fun printAll2(a: Int, b: Int, vararg c: String) {
+    val allTexts = c.joinToString(",", "[", "]")
+    println("$a and $b and $allTexts")
+}
+
+fun printAll(vararg texts: String) {
+    val allTexts = texts.joinToString(",", "[", "]", 2)
+    println("Text are $allTexts")
+
+}
+
+fun printsum(vararg numbers: Int) {
+    val sum = numbers.sum()//多个整数之和
+    println(sum)
+}
+
+fun back_method() {
+    //Unit等价于java中的void
+    printSum(1, 2)
+    //unit也等价于任意其他对象，可以将其存储于变量中
+    val p = printSum(1, 3)
+    println(p is Unit)
+    println(p == Unit)
+    println(p === Unit)
+
+    printSum1(1, 3)
+
+}
+
+fun printSum(a: Int, b: Int): Unit {
+    val sum = a + b
+    println(sum)
+}
+
+fun printSum1(a: Int, b: Int): Int {
+    if (a < 0 || b < 0) {
+        return 0
+    }
+    val sum = a + b
+    print(sum)
+    return sum
+}
+
+fun biaoqian() {
+    println("START : " + ::biaoqian.name)
+    outer@ for (out in 1..5) {//使用标签跳出指定循环
+        println("outer $out")
+        for (inner in 1..5) {
+            if (inner % 2 == 0) {
+                break@outer
+            }
+            println("inner $inner")
+        }
+    }
+    println(" END : " + ::biaoqian.name)
+}
+
+fun function10() {
+    //原始字符串引号，会保留字符串的格式，包括换行，符号等
+    var rawCode = """
+    for (item in list) {
+        if (item is Son.小小驴) {
+            println(item.sayHello())
+        }
+    }
+    """
+    print(rawCode)
 }
 
 fun function9() {
@@ -129,13 +237,116 @@ fun numberChiness(num: Int): String {
     return chiness
 }
 
-fun function4(score: Int) {//类似switch
-    when (score) {
-        10 -> println("棒棒哒")
-        9 -> println("哈哈哈")
-        else -> println("需要加油哦")
+fun when_code(score: Int) {//类似switch
+//    when (score) {
+//        10 -> println("棒棒哒")
+//        9 -> println("哈哈哈")
+//        else -> println("需要加油哦")
+//    }
+//    diaryGenarator("中山公园")
+
+    //条件分支也可以是代码块
+    val x = 1
+    val validNumbers = arrayOf(1, 2, 3)
+    when (x) {
+        in 1..10 -> print("x is in the range")
+        in validNumbers -> print("x is in the validNumbers")
+        !in 10..20 -> print("x is outside the range")
+        else -> print("none of the above")
+    }
+
+}
+
+fun for_code() {
+    var lists: ArrayList<String> = ArrayList()
+    lists.add("aa")
+    lists.add("bb")
+    for (i in lists) {
+        println(i)
+    }
+    for (i in lists.indices) {//遍历下标
+        println(i)
+    }
+    //库函数withIndex
+    for ((index, value) in lists.withIndex()) {
+        println("the element at $index is $value")
     }
 }
+
+fun while_code() {
+    var x = 10
+    while (x > 0) {
+        x--
+        print("$x |")
+    }
+    println()
+    var y = 10
+    do {
+        y = y + 1
+        print("$y |")
+    } while (y < 20)
+
+
+}
+
+fun break_continue_code() {
+    for (i in 1..10) {
+        println(i)
+        if (i % 2 == 0) {//跳出整个循环
+            break
+        }
+    }
+
+    for (i in 1..10) {
+        if (i % 2 == 0) {//跳过某个循环
+            continue
+        }
+        println(i)
+    }
+}
+
+fun if_code() {
+    max(1, 3)
+    max1(1, 3)
+    max2(1, 3)
+    max3(1, 3)
+
+    val x = if (1 == 1) true else false
+    println(x)
+}
+
+fun max(a: Int, b: Int): Int {
+    val max = if (a > b) a else b
+    return max
+}
+
+fun max1(a: Int, b: Int): Int {
+    var max1 = a
+    if (a < b) max1 = b
+    return max1
+}
+
+fun max2(a: Int, b: Int): Int {
+    var max2: Int
+    if (a > b) {
+        max2 = a
+    } else {
+        max2 = b
+    }
+    return max2
+}
+
+fun max3(a: Int, b: Int): Int {
+    val max = if (a > b) {
+        print("Max is a")
+        a
+    } else {
+        print("Max is b")
+        b
+    }
+    return max
+}
+
 
 fun function3() {
     var str1 = "haha"
@@ -151,17 +362,23 @@ fun function2() {
 }
 
 fun function1() {
-    var aByte: Byte = Byte.MAX_VALUE
-    var bByte: Byte = Byte.MIN_VALUE
-    println("最大值" + aByte + "最小值" + bByte)
+//    var aByte: Byte = Byte.MAX_VALUE
+//    var bByte: Byte = Byte.MIN_VALUE
+//    println("最大值" + aByte + "最小值" + bByte)
+//
+//    var num3 = Math.sqrt(5.0) - Math.sqrt(4.0)//根号
+//    var num4 = Math.sqrt(4.0) - Math.sqrt(3.0)
+//    println("根号比较:" + (num3 < num4))
+//
+//    var num5 = Math.pow(5.0, 100.0)//平方
+//    var num6 = Math.pow(6.0, 75.0)
+//    println("平方比较:" + (num5 < num6))
 
-    var num3 = Math.sqrt(5.0) - Math.sqrt(4.0)//根号
-    var num4 = Math.sqrt(4.0) - Math.sqrt(3.0)
-    println("根号比较:" + (num3 < num4))
-
-    var num5 = Math.pow(5.0, 100.0)//平方
-    var num6 = Math.pow(6.0, 75.0)
-    println("平方比较:" + (num5 < num6))
+    val array = arrayOf(1, 2, 3)
+    println(array[0])
+    println(array is Array)
+    println(array::class)
+    println(array::class.java)
 }
 
 
