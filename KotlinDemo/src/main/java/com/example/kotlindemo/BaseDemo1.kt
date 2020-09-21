@@ -5,6 +5,7 @@ import kotlin.collections.ArrayList
 
 /**
 基本类型的运算比较
+双冒号::的使用
 """原始字符串
 返回函数（Unit）相当于java 中的 Void
 vararg参数：使函数可以接受任意数量的参数
@@ -21,50 +22,96 @@ map入门
  */
 
 fun main() {
-    //基本类型的运算比较
+    /**基本类型的运算比较*/
     //function1()
 
-//    //${}替换
-//    function2()
-//
-//    //字符串比较
-//    function3()
-//
-    //流程控制语句
+    /**
+     * 双冒号::的使用
+     * Kotlin 中 双冒号操作符 表示把一个方法当做一个参数，传递到另一个方法中进行使用，通俗的来讲就是引用一个方法
+     */
+//    println(lock("param1", "param2", ::getResult))
+//    //如果我们需要调用其他 Class 中的某一个方法是：
+//    var d = Test()
+//    println(lock("param1", "param2", d::getResult))
+//    //我们在 Class 中的某个方法中使用双冒号调用当前 Class 的内部方法时调动方式为：
+//    //为了防止作用域混淆 ， :: 调用的函数如果是类的成员函数或者是扩展函数，必须使用限定符,比如this
+//    var e = Test1()
+//    println(e.test())
+
+    /**${}替换*/
+    //function2()
+
+    /**字符串比较*/
+    //function3()
+
+    /**流程控制语句*/
     //when_code(10)
     //if_code()
     //for_code()
     //while_code()
     //break_continue_code()
 
-    //@标签的使用
+    /**@标签的使用*/
     //biaoqian()
 
-    //返回函数（Unit）相当于java 中的 Void
+    /**返回函数（Unit）相当于java 中的 Void*/
     //back_method()
 
-    //vararg参数：使函数可以接受任意数量的参数
-    vararg_method()
-//
-//    //loop和range(循环和区间)
-//    function5()
-//
-//    //map入门
-//    function6()
-//
-//    //函数表达式
-//    function7()
-//
-//    //枚举
-//    function8()
-//
-//    //印章类,子类类型是有限的，更在意类型，枚举类更在意数据
-//    function9()
+    /**vararg参数：使函数可以接受任意数量的参数*/
+    //vararg_method()
 
-    //"""原始字符串
+    /**loop和range(循环和区间)*/
+    //function5()
+
+    /**map入门*/
+    //function6()
+
+    /**函数表达式*/
+    //function7()
+
+    /**枚举*/
+    //function8()
+
+    /**印章类,子类类型是有限的，更在意类型，枚举类更在意数据*/
+    //function9()
+
+    /** """原始字符串*/
     //function10()
 
 }
+
+
+class Test1 {
+    fun isOdd(x: Int) = x % 2 != 0
+
+    fun test() {
+        var list = listOf(1, 2, 3, 4, 5)
+        println(list.filter(this::isOdd))
+    }
+}
+
+class Test {
+    /**
+     * @param str1 参数1
+     * @param str2 参数2
+     */
+    fun getResult(str1: String, str2: String): String = "result is {$str1 , $str2}"
+}
+
+/**
+ * @param p1 参数1
+ * @param p2 参数2
+ * @param method 方法名称
+ */
+fun lock(p1: String, p2: String, method: (str1: String, str2: String) -> String): String {
+    return method(p1, p2)
+}
+
+/**
+ * @param str1 参数1
+ * @param str2 参数2
+ */
+fun getResult(str1: String, str2: String): String = "result is {$str1 , $str2}"
 
 fun vararg_method() {
     printsum(1, 2)
@@ -238,12 +285,12 @@ fun numberChiness(num: Int): String {
 }
 
 fun when_code(score: Int) {//类似switch
-//    when (score) {
-//        10 -> println("棒棒哒")
-//        9 -> println("哈哈哈")
-//        else -> println("需要加油哦")
-//    }
-//    diaryGenarator("中山公园")
+    when (score) {
+        10 -> println("棒棒哒")
+        9 -> println("哈哈哈")
+        else -> println("需要加油哦")
+    }
+    diaryGenarator("中山公园")
 
     //条件分支也可以是代码块
     val x = 1

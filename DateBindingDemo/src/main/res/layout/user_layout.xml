@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onLongClick="@{user.longClickNickName}"
-            android:text="@{user.nike_name==null?user.name:user.nike_name}"
+            android:text="@{user.nike_name==null?user.name:user.nike_name,default=哈哈默认}"
             android:textColor="@{user.vip ? 0xffff0000 : 0xff000000}"
             android:textSize="30sp" />
 

@@ -3,39 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!--<data>-->
 
-    <!--<import type="com.example.datebindingdemo.User" />-->
-    <!--<variable-->
-    <!--name="users"-->
-    <!--type="java.util.List&lt;User&gt;" />-->
-    <!--</data>-->
     <data>
 
         <import type="com.example.datebindingdemo.User" />
+
+        <variable
+            name="users"
+            type="java.util.List&lt;User>" />
 
         <variable
             name="adapter"
             type="android.widget.BaseAdapter" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         tools:context=".MainActivity">
 
-        <!--<include-->
-        <!--layout="@layout/user_layout"-->
-        <!--app:user="@{users[0]}" />-->
-
-        <!--<include-->
-        <!--layout="@layout/user_layout"-->
-        <!--app:user="@{users[1]}" />-->
-        <ListView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:adapter="@{adapter}" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <include
+                    layout="@layout/user_layout"
+                    app:user="@{users[0]}" />
+
+                <include
+                    layout="@layout/user_layout"
+                    app:user="@{users[1]}" />
+            </LinearLayout>
+
+            <com.example.datebindingdemo.MyListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:adapter="@{adapter}" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
 </layout>
