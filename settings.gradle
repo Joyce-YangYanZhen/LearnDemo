@@ -1,3 +1,4 @@
+include ':constraintlayouttest'
 rootProject.name='LearnDemo'
 include ':app', ':DateBindingDemo', ':KotlinDemo', ':RxjavaDemo'
 include ':viewdemo'
