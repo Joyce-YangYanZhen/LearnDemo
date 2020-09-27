@@ -6,4 +6,8 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+    <string name="phone_name">手机号：</string>
+    <string name="phone_edit_hint">请输入手机号</string>
+    <string name="bt_login">验证码登录</string>
+    <string name="xieyi_value">登录即代表同意用户协议</string>
 </resources>

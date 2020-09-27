@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         recycler_view.layoutManager = LinearLayoutManager(this)
         val list = mutableListOf<String>()
-        list.add("demo1")
+        list.add("登录页面")
         val customerAdapter = CustomerAdapter(R.layout.adapter_item, list)
         recycler_view.adapter = customerAdapter
 
