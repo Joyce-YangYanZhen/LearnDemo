@@ -11,7 +11,6 @@
     </data>
 
     <LinearLayout
-        android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -31,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onLongClick="@{user.longClickNickName}"
+            android:onClick="@{user.clickName}"
             android:text="@{user.nike_name==null?user.name:user.nike_name,default=哈哈默认}"
             android:textColor="@{user.vip ? 0xffff0000 : 0xff000000}"
             android:textSize="30sp" />
