@@ -1,19 +1,21 @@
 package com.example.datebindingdemo.bean;
 
-public class Student {
-    private int age;
-    private String name;
+import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableInt;
 
-    public int getAge() {
+public class Student {
+    private ObservableInt age;
+    private ObservableField<String> name;
+    public ObservableInt getAge() {
         return age;
     }
-    public void setAge(int age) {
+    public void setAge(ObservableInt age) {
         this.age = age;
     }
-    public String getName() {
+    public ObservableField<String> getName() {
         return name;
     }
-    public void setName(String name) {
+    public void setName(ObservableField<String> name) {
         this.name = name;
     }
 }

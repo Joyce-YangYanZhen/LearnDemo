@@ -14,6 +14,19 @@
       <variable
           name="student2"
           type="Student2" />
+      <variable
+          name="change"
+          type="com.example.datebindingdemo.TestActivity2.Change" />
+
+      <import type="androidx.databinding.ObservableList"/>
+      <variable
+          name="observableList"
+          type="ObservableList&lt;String&gt;" />
+      <import type="androidx.databinding.ObservableMap"/>
+      <variable
+          name="observableMap"
+          type="ObservableMap&lt;String,String&gt;" />
+      
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,5 +50,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/name_tv"
         app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/other_tv"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text=""
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/age_tv"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <Button
+          android:id="@+id/changeBtn1"
+          android:layout_width="wrap_content"
+          app:layout_constraintTop_toBottomOf="@+id/name_tv"
+          app:layout_constraintStart_toStartOf="@+id/name_tv"
+          android:layout_marginStart="10dp"
+          android:onClick="@{()->change.changeAgeListener()}"
+          android:layout_height="wrap_content"
+          android:text="改变age"/>
+
+      <Button
+          android:id="@+id/changeBtn2"
+          android:layout_width="wrap_content"
+          app:layout_constraintStart_toStartOf="@+id/changeBtn1"
+          app:layout_constraintTop_toBottomOf="@+id/age_tv"
+          app:layout_constraintEnd_toEndOf="parent"
+          android:onClick="@{()->change.changeAll()}"
+          android:layout_marginStart="10dp"
+          android:layout_height="wrap_content"
+          android:text="改变所有属性"/>
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
