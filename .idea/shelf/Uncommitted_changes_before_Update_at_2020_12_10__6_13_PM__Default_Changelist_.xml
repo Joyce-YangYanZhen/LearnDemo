@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_2020_12_10,_6_13_PM_[Default_Changelist]" date="1607595238208" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_12_10,_6_13_PM_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2020/12/10, 6:13 PM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="gradle/wrapper/gradle-wrapper.jar" />
+    <option name="AFTER_PATH" value="gradle/wrapper/gradle-wrapper.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_12_10,_6_13_PM_[Default_Changelist]/gradle-wrapper.jar" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ConstraintLayoutTest/gradle/wrapper/gradle-wrapper.jar" />
+    <option name="AFTER_PATH" value="ConstraintLayoutTest/gradle/wrapper/gradle-wrapper.jar" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020_12_10,_6_13_PM_[Default_Changelist]/gradle-wrapper1.jar" />
+  </binary>
+</changelist>
